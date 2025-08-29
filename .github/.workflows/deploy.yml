@@ -3,7 +3,7 @@ name: Deploy Quartz site to GitHub Pages
 on:
   push:
     branches:
-    - v4
+    - v4 # change to your actual source branch
 
 permissions:
   contents: read
@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        fetch-depth: 0 # Fetch all history for git info
+        fetch-depth: 0
     - uses: actions/setup-node@v4
       with:
         node-version: 22
@@ -35,11 +35,14 @@ jobs:
 
   deploy:
     needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
     - name: Deploy to GitHub Pages
-      id: deployment
+      id: deploy
       uses: actions/deploy-pages@v4
