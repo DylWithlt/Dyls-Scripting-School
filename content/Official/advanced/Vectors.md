@@ -123,7 +123,7 @@ What we really want is a way to control exactly how far our gun can hit. What we
  (mouse.Hit.Position - head.Position).Unit * 300 is a common way to get a ray direction.
 
 For fun the math behind a unit vector is just each number in the vector divided by the magnitude of the vector. 
-   
+
 unit = v / | v |
 
 ### The Point: Normalizing a vector can get you a vector with the same direction but change the magnitude to whatever you want (or simplify operations).
