@@ -3,7 +3,7 @@ title: Problem Solving 101
 tags:
   - pathfinding
   - character
-draft: true
+draft: false
 ---
 
 > [!tip] Did you know there's a useful studio plugin for pathfinding?
@@ -20,152 +20,13 @@ By default, the shortest path is found, but you can add pathfinding modification
 
 # How do you use PathfindingService?
 
-According to ROBLOX documentation at the time of publishing, you should use the `Class.Humanoid.MoveToFinished\|MoveToFinished` event.
-
-### Creating your path 
+According to ROBLOX documentation at the time of publishing, you should use the `Class.Humanoid.MoveToFinished\|MoveToFinished` event. However, I shall provide my own method which is much more accurate. If you want to use the ROBLOX documented method, go [here](https://create.roblox.com/docs/characters/pathfinding). 
 
 
-```lua
-local PathfindingService = game:GetService("PathfindingService")
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-local Workspace = game:GetService("Workspace")
+> [!NOTE]
+> It is important to fully understand Pathfinding Service, so I recommend reading these docs before using my approach. 
 
-local path = PathfindingService:CreatePath({
-	Costs = {
-		Water = 20,
-	}
-})
-
-local player = Players.LocalPlayer
-local character = player.Character
-local humanoid = character:WaitForChild("Humanoid")
-
-local TEST_DESTINATION = Vector3.new(228.9, 17.8, 292.5)
-
-local waypoints
-local nextWaypointIndex
-local reachedConnection
-local blockedConnection
-
-local function followPath(destination)
-	-- Compute the path
-	local success, errorMessage = pcall(function()
-		path:ComputeAsync(character.PrimaryPart.Position, destination)
-	end)
-
-	if success and path.Status == Enum.PathStatus.Success then
-		-- Get the path waypoints
-		waypoints = path:GetWaypoints()
-
-		-- Detect if path becomes blocked
-		blockedConnection = path.Blocked:Connect(function(blockedWaypointIndex)
-			-- Check if the obstacle is further down the path
-			if blockedWaypointIndex >= nextWaypointIndex then
-				-- Stop detecting path blockage until path is re-computed
-				blockedConnection:Disconnect()
-				-- Call function to re-compute new path
-				followPath(destination)
-			end
-		end)
-
-		-- Detect when movement to next waypoint is complete
-		if not reachedConnection then
-			reachedConnection = humanoid.MoveToFinished:Connect(function(reached)
-				if reached and nextWaypointIndex < #waypoints then
-					-- Increase waypoint index and move to next waypoint
-					nextWaypointIndex += 1
-
-					local PathfindingService = game:GetService("PathfindingService")
-					local Players = game:GetService("Players")
-					local RunService = game:GetService("RunService")
-					local Workspace = game:GetService("Workspace")
-
-					local path = PathfindingService:CreatePath({
-						Costs = {
-							Water = 20,
-						}
-					})
-
-					local player = Players.LocalPlayer
-					local character = player.Character
-					local humanoid = character:WaitForChild("Humanoid")
-
-					local TEST_DESTINATION = Vector3.new(228.9, 17.8, 292.5)
-
-					local waypoints
-					local nextWaypointIndex
-					local reachedConnection
-					local blockedConnection
-
-					local function followPath(destination)
-						-- Compute the path
-						local success, errorMessage = pcall(function()
-							path:ComputeAsync(character.PrimaryPart.Position, destination)
-						end)
-
-						if success and path.Status == Enum.PathStatus.Success then
-							-- Get the path waypoints
-							waypoints = path:GetWaypoints()
-
-							-- Detect if path becomes blocked
-							blockedConnection = path.Blocked:Connect(function(blockedWaypointIndex)
-								-- Check if the obstacle is further down the path
-								if blockedWaypointIndex >= nextWaypointIndex then
-									-- Stop detecting path blockage until path is re-computed
-									blockedConnection:Disconnect()
-									-- Call function to re-compute new path
-									followPath(destination)
-								end
-							end)
-
-							-- Detect when movement to next waypoint is complete
-							if not reachedConnection then
-								reachedConnection = humanoid.MoveToFinished:Connect(function(reached)
-									if reached and nextWaypointIndex < #waypoints then
-										-- Increase waypoint index and move to next waypoint
-										nextWaypointIndex += 1
-
-
-										humanoid:MoveTo(waypoints[nextWaypointIndex].Position)
-
-									else
-										reachedConnection:Disconnect()
-										blockedConnection:Disconnect()
-									end
-								end)
-							end
-
-							-- Initially move to second waypoint (first waypoint is path start; skip it)
-							nextWaypointIndex = 2
-							humanoid:MoveTo(waypoints[nextWaypointIndex].Position)
-						else
-							warn("Path not computed!", errorMessage)
-						end
-					end
-
-					followPath(TEST_DESTINATION)
-					humanoid:MoveTo(waypoints[nextWaypointIndex].Position)
-
-				else
-					reachedConnection:Disconnect()
-					blockedConnection:Disconnect()
-				end
-			end)
-		end
-
-		-- Initially move to second waypoint (first waypoint is path start; skip it)
-		nextWaypointIndex = 2
-		humanoid:MoveTo(waypoints[nextWaypointIndex].Position)
-	else
-		warn("Path not computed!", errorMessage)
-	end
-end
-
-followPath(TEST_DESTINATION)
-
-```
-# My approach
+# Best approach
 
 Whilst using the `Class.Humanoid.MoveToFinished\|MoveToFinished` event to detect when the character reaches each waypoint will work in some use cases, in larger games or games with numerous NPCs you may find less optimal performances and stuttering.  
 
@@ -176,7 +37,7 @@ To determine when to move to the next obstacle, you should use the `IsCurrentWay
 An example of this solution is provided below, and can be tested by placing in a LocalScript under StarterCharacterScripts.
 
 > This code can be modified to a module for pathfinding, or coded directly into your systems using the base functions provided.
-
+##### Full source code 
 ```lua
 local PathfindingService = game:GetService("PathfindingService")
 local RunService = game:GetService("RunService")
