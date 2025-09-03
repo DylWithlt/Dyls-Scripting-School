@@ -1,5 +1,5 @@
 ---
-title: Problem Solving 101
+title: Character Pathfinding
 tags:
   - pathfinding
   - character
