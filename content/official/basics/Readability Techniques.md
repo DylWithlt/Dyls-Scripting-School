@@ -46,7 +46,7 @@ As you can see, the first script does not use the **Guard Clause** design patter
 The second script is much easier to modify and add new conditions to, whereas the first script will become increasingly nested and harder to add new statements to.
 
 # Modular code
-What is modular code? To understand what modular code is, you need a basic understanding of what a **Module Script** is. If you don't, please head to [Module Script]() and read it.
+What is modular code? To understand what modular code is, you need a basic understanding of what a **Module Script** is. If you don't, please head to [Module Script](https://dylwithlt.github.io/DylsScriptingArticles/official/basics/Module-Scripts) and read it.
 
 In modular code, your objective is to turn your code into pieces, so you can easily modify those pieces without having to go through the main script, which is a high-class script.
 

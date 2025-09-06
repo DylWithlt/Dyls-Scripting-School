@@ -10,8 +10,9 @@ In this article, we're going to go over the history of **ModuleScripts** and how
 **Fun fact**: Released on December 5, 2013, Engine Release 131 adds two new classes, SurfaceGui and **ModuleScript**.
 
 ### New scripters often ask themselves,
-"What is a **ModuleScript**?"
-"What is this purple script?"
+\n
+"What is a **ModuleScript**?"\n
+"What is this purple script?"\n
 "How can **ModuleScripts** benefit my game?"
 
 If you're a new scripter with these questions, you're in the right place! Today, we're going to answer them.
