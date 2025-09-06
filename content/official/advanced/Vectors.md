@@ -7,7 +7,7 @@ This article will be about trying to think about vectors in a new way in order t
 # Foundation
 First in order to understand vectors we need to start thinking about numbers in a different way. Normally how most people learn to think of numbers is as quantities, describing a certain number of things. This isn't incorrect however in order to think about operations and transformations in numbers in a way that prepares us for vectors we need to start thinking of numbers in terms of grids. The most simple representation of a grid for a number is a number line, representing numbers growing and shrinking as they go left and right on a number line.
 
-<video src="https://cdn.discordapp.com/attachments/1209961115212185690/1209973264659652668/brave_VClgGUwIlU.mp4?ex=68b2c2aa&is=68b1712a&hm=028cd0f2740d00cb32e136528895be529907971196dd118d684375810b9da0b8&" controls width="100%"></video>
+[text](../../assets/vectors_foundation_1.webm)
 
 Try to think of it as it's relation to the origin, like this example.
 
@@ -27,7 +27,7 @@ This example shows how 2 - 3 = -1. (the same as 2 + -3 = -1)
 multiplication
 
 <video src="https://cdn.discordapp.com/attachments/1209961115212185690/1210012700713951263/brave_C4QENPBcAk.mp4?ex=68b2e764&is=68b195e4&hm=5e465acba0418b290fa69c235504a6687c1a69a6b4570943d7964e0ec3f703f4&" controls width="100%"></video>
-
+https://drive.google.com/file/d/1uC9l2lQN-ARkwVuynCABuRaINWCuw_dD/view?usp=drive_link
 # Adding A New Dimension
 Now we're working up to a new dimension and we'll start using the y Axis, however you'll come to find it works exactly the same way. Let's go over some examples.
 First things first let's show the first example again but in the new dimension to orient ourselves.
