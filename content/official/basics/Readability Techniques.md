@@ -50,7 +50,7 @@ What is modular code? To understand what modular code is, you need a basic under
 
 In modular code, your objective is to turn your code into pieces, so you can easily modify those pieces without having to go through the main script, which is a high-class script.
 
-[text](https://github.com/DylWithlt/DylsScriptingArticles/blob/v4/content/assets/modular_code.webp)
+![image](https://cdn.discordapp.com/attachments/1071851504627097670/1413998909793107999/Screenshot_2025-09-07_003342.webp?ex=68bdf89a&is=68bca71a&hm=0ab1f09c17df0178f99653358c7d1aa151f1757c706e91aeac0f93467d53957c&)
 
 Modular code is genuinely easy to modify, update, and maintain, and other scripters won't have to go through 2000 lines of code to find a certain function.
 
