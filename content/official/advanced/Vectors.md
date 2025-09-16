@@ -7,36 +7,36 @@ This article will be about trying to think about vectors in a new way in order t
 # Foundation
 First in order to understand vectors we need to start thinking about numbers in a different way. Normally how most people learn to think of numbers is as quantities, describing a certain number of things. This isn't incorrect however in order to think about operations and transformations in numbers in a way that prepares us for vectors we need to start thinking of numbers in terms of grids. The most simple representation of a grid for a number is a number line, representing numbers growing and shrinking as they go left and right on a number line.
 
-![[../../assets/Vectors/vectors_foundation_1.webm]]
+![[vectors_foundation_1.webm]]
 
 Try to think of it as it's relation to the origin, like this example.
 
-![[../../assets/Vectors/vectors_foundation_2.webm]]
+![[vectors_foundation_2.webm]]
 
 # 1D Operations
 Now that you're thinking as numbers as 1d vectors let's see how adding them or subtracting them might look to get you in the correct frame of mind.
 This example shows how adding 2 + 2 = 4
 
-![[../../assets/Vectors/vectors_1d_1.webp]]
+![[vectors_1d_1.webp]]
 
 This example shows how 2 - 3 = -1. (the same as 2 + -3 = -1)  
 
-![[../../assets/Vectors/vectors_1d_2.webp]]
+![[vectors_1d_2.webp]]
 
 multiplication
 
-![[../../assets/Vectors/vectors_1d_3.webm]]
+![[vectors_1d_3.webm]]
 
 # Adding A New Dimension
 Now we're working up to a new dimension and we'll start using the y Axis, however you'll come to find it works exactly the same way. Let's go over some examples.
 First things first let's show the first example again but in the new dimension to orient ourselves.
 
-![[../../assets/Vectors/vectors_newdim_1.webm]]
+![[vectors_newdim_1.webm]]
 
 Notice how our number describes a position in the grid as well as the line from 0, 0 to the point. There is no difference between the two only how we think about it.
 One final example to nail the point home. Notice how this point is also described as the offset on the X axis and an offset on the Y axis.
 
-![[../../assets/Vectors/vectors_newdim_2.webm]]
+![[vectors_newdim_2.webm]]
 
 # Operations
 Now we're going to start manipulating our vectors with math, before we continue let's quickly go over the difference between a scalar and a vector.
@@ -55,7 +55,7 @@ Adding two vectors is one of the simplest operations to perform. The math works 
 
 Vectors are offsets from the origin just as numbers are, but when you add them you change that new origin to the end of the other vector.
 
-![[../../assets/Vectors/vectors_vplusv_1.webm]]
+![[vectors_vplusv_1.webm]]
 <iframe src="https://www.desmos.com/calculator/m7j2jyhwuw" width="800" height="600"></iframe>
 
 # Vector - Vector
@@ -63,7 +63,7 @@ This is very similar to addition, except it flips the vector 180 degrees.
 
 (x = 1, y = 2) + (x = 3, y = 4) = (x = 1 - 3, y = 2 - 4) = (x = -2, y = -2)
 
-![[../../assets/Vectors/vectors_vminusv_1.webm]]
+![[vectors_vminusv_1.webm]]
 <iframe src="https://www.desmos.com/calculator/uk9ookz8t0" width="800" height="600"></iframe>
 
 # Vector * Scalar
@@ -73,7 +73,7 @@ Vector times a scalar multiplies each number by the scalar like so:
 
 This isn't quite useful on its own but combined with normalization it can be very powerful. We'll cover that soon.
 
-![[../../assets/Vectors/vectors_vtimess_1.webm]]
+![[vectors_vtimess_1.webm]]
 <iframe src="https://www.desmos.com/calculator/jklk8iyhgx" width="800" height="600"></iframe>
 
 I won't be doing division however division is just the inverse of multiplication anyways so you should be able to extrapolate it.
@@ -87,24 +87,24 @@ Now the problem with doing this in code is that it can be very expensive to perf
 
 Until then here's a video of the triangle that forms so you can better see the relationship with Pythagoras.
 
-![[../../assets/Vectors/vectors_magnitude_1.webm]]
+![[vectors_magnitude_1.webm]]
 
 # Useful Operation: Vector - Vector
 Okay now we're finally getting to some useful stuff after laying all this groundwork. One of the most simple operations performed on vectors to vectors is subtraction. In normal 1d mathematics subtraction will give us the "difference" between two numbers, with vectors it does the same thing. Let's go through an example to understand better how this can be useful.
 
 Imagine you have two objects in your game world and each one has a position. As we've learned positions are just Vectors that store numbers describing where they are in the world.
 
-![[../../assets/Vectors/vectors_vminusv_1.webp]]
+![[vectors_vminusv_1.webp]]
 
 What do we get when we subtract these two positions from each other (purple - green)? We get some strange point way over here, but remember what I said before, subtraction describes the difference between two numbers and it describes the difference between two vectors and has the same magnitude as the distance between each. That point purple - green is the offset from zero that 0,0 is from black. We can prove that too. If we take black and add it to green we will get purple exactly!
 
-![[../../assets/Vectors/vectors_vminusv_2.webp]]
+![[vectors_vminusv_2.webp]]
 
-![[../../assets/Vectors/vectors_vminusv_3.webp]]
+![[vectors_vminusv_3.webp]]
 
 Taking this even further if we want the midpoint between purple and green all we have to do is divide black by 2 and add it back to green. 
 
-![[../../assets/Vectors/vectors_vminusv_2.webm]]
+![[vectors_vminusv_2.webm]]
 
 Understanding how these different transformations can get you exactly what you need to solve your problem will make you capable of coming up with your own ideas and solutions to very difficult and complex tasks.
 ### The Point: vector a - vector b = difference of b to a, vector pointing direction b is to a, and has magnitude of the distance between b to a.
@@ -124,7 +124,7 @@ unit = v / | v |
 
 ### The Point: Normalizing a vector can get you a vector with the same direction but change the magnitude to whatever you want (or simplify operations).
 
-![[../../assets/Vectors/vectors_normalization_1.webm]]
+![[vectors_normalization_1.webm]]
 <iframe src="https://www.desmos.com/calculator/zykgjopc0m" width="800" height="600"></iframe>
 
 # Dot Product - Vector * Vector
@@ -152,7 +152,7 @@ This means a dot product is equivalent to the length of a times the length of b 
 ### Finding The Angle Between Two Vectors
 The most simple use case for handling vectors is finding the cos of the angle between the two vectors. Which you can use to get the actual angle between the two vectors. Let's go over some examples to demonstrate how it works.
 
-![[../../assets/Vectors/vectors_dot_1.webp]]
+![[vectors_dot_1.webp]]
 
 In this case the u:Dot(v) will result in `||u||` * `||v||` * cos( θ ). We can get the actual angle from that by dividing by `|u| * |v|` and taking the acos of the result. `|u|` and `|v|` being the magnitude of each vector. If we want to simplify our calculation we can normalize u and v which makes each length exactly 1. That would make the equation `1 * 1 * cos(θ) ` and anything by 1 is itself so it simplifies down to just cos(θ). If you know trigonometry a little bit you may already see how this can be useful already. This will give you the angle between each vector:
 
@@ -194,7 +194,7 @@ v:Dot(v) > 5^2
 ### Finding the projection of one vector onto another.
 Projection onto a plane can be useful in a lot of circumstances although you'll need to be creative to use it. It can be especially useful in a 3d environment. Anyways, continuing on let's make it clear exactly what "projecting" means. If we have vector u and we want to know how far along it is on the axis that vector v travels down. Basically what this means is we're trying to constrain our vector v to a length that matches exactly with the end of vector u. Here's a picture to describe that.
 
-![[../../assets/Vectors/vectors_proj_1.webp]]
+![[vectors_proj_1.webp]]
 
 One thing to mention is this does not matter the size of v or even if v is rotated 180 degrees or not. All we really care about is the "axis" or part of an infinitely long invisible line that u will fall onto.
 To sum up the math what we're trying to do is find out the ratio of size u to size v in order to scale u correctly. The formula is this:
@@ -215,10 +215,10 @@ The cross product between one 3d vector and another 3d vector is a vector that i
 2. The magnitude of the area of the shape/parallelogram both vectors make. 
 Due to this being mostly in 3d space I will use images found online to demonstrate this.
 
-![[../../assets/Vectors/vectors_cross_1.webp]]
+![[vectors_cross_1.webp]]
 
-![[../../assets/Vectors/vectors_cross_2.webp]]
+![[vectors_cross_2.webp]]
 
 Here is the math for those of you who are brave, don't think you NEED to know this though:
 
-![[../../assets/Vectors/vectors_cross_3.webp]]
+![[vectors_cross_3.webp]]
