@@ -31,7 +31,7 @@ The passion of profit drives you, and you are chasing that green. However, nobod
 Self doubt creeps in like a parasite and sucks you dry of that profit driven motivation. The few games that make it through don't even have the funds for marketing so nobody ever plays it and you end up poor anyways, or worse, you put a ton of your own money into your game and it flops hard. It's not fun. Another game dead.
 
 ## The Hobbyist
-You LOVE games. You have been playing games since you were little and you learned to develop to express your own ideas thought gaming. You don't need anything but your love for gaming, passion, and the diverse skillset you've developed to enjoy your hobby. You can be a bit ambitious, but you're not worried, you'll power through because this is what you enjoy doing. 
+You LOVE games. You have been playing games since you were little and you learned to develop to express your own ideas thought gaming. You don't need anything but your love for gaming, passion, and the diverse skill set you've developed to enjoy your hobby. You can be a bit ambitious, but you're not worried, you'll power through because this is what you enjoy doing. 
 
 Money's getting a little tight though, maybe you'll take a break from this game. Or maybe you just had another GREAT idea, one better than this one, and this one is getting boring to work on anyways. Time to start a new project. Or maybe you're putting EVERYTHING into this project, your masterpiece. You spend all day and all night, every moment of your free time learning and developing and designing what you love. This can tire you out too, a short break and you feel free, a different high you don't have to work so hard on, and suddenly the game is forgotten, you got to focus on you.
 
