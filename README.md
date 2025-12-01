@@ -1,4 +1,5 @@
 <!-- omit in toc -->
+v1
 # Contributing to DylsScriptingArticles
 
 First off, thanks for taking the time to read! ❤️
